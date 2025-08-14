@@ -1,0 +1,32 @@
+<header>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="{{ .Site.BaseURL }}">{{ site.Title }}</a>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-link">
+                {{ $link_counter := len .Site.Params.header.links }}
+                {{ if ge $link_counter 6 }}
+                <style>
+                    .navbar {
+                        flex-direction: column;
+                    }
+
+                    .navbar-link {
+                        margin: 0 0 0 auto;
+                    }
+                </style>
+                {{ end }}
+                {{ range .Site.Params.header.links }}
+                <a href="{{ .url }}">{{ .name }}</a>
+                {{ end}}
+            </div>
+            <div class="theme-toggle-btn" id="theme-toggle-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                    <path fill="#1a1a1a"
+                        d="M10 2c-1.82 0-3.53.5-5 1.35C8 5.08 10 8.3 10 12s-2 6.92-5 8.65C6.47 21.5 8.18 22 10 22a10 10 0 0 0 10-10A10 10 0 0 0 10 2" />
+                </svg>
+            </div>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,76 @@
+baseURL = "https://example.com"
+languageCode = "en"
+title = "Example Site"
+copyright = "Name"
+theme = "silavind"
+pagination.pagerSize = 3
+hasCJKLanguage = true
+enableEmoji = true
+disableKinds = ["section", "taxonomy", "term"] # DO NOT MODIFY
+
+
+[params]
+    site_description = "An extremely minimalist single-page Hugo theme..."
+    author = "Name"
+    intro = "Welcome to my personal blog. Wishing you a wonderful day."
+    
+# =========================Header START==========================
+# Recommended for up to 4 items with names of less than 9 letters.
+[params.header]
+    [[params.header.links]]
+        name = "Test"
+        url = "#"
+    [[params.header.links]]
+        name = "RSS"
+        url = "/index.xml"
+# ==========================Header END===========================
+
+# =========================Social START==========================
+[params.social]
+    [[params.social.links]]
+        name = "GitHub"
+        url = "https://github.com/yourusername"
+
+    [[params.social.links]]
+        name = "Twitter"
+        url = "https://twitter.com/yourusername"
+
+    [[params.social.links]]
+        name = "Mastodon"
+        url = "https://mastodon.social/@yourname"
+
+    [[params.social.links]]
+        name = "Email"
+        url = "mailto:you@example.com"
+# =========================Social END==========================
+
+# ========================Project START========================
+[params.projects]
+    [[params.projects.links]]
+        name = "Example A"
+        url = "https://example.com"
+        desc = "Example project..."
+        start_date = "2025-06-07"
+        license = "MIT"
+
+    [[params.projects.links]]
+        name = "Example B"
+        url = "https://example.com"
+        desc = "Example project..."
+        start_date = "2025-06-08"
+        license = ""
+# ========================Project END========================
+
+[permalinks]
+  writings = '/writings/:2006/:01/:02/:title'
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = '0.146.0'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      footnote = true
+      typographer = true

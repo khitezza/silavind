@@ -1,0 +1,51 @@
+{{ define "title" }}
+{{ .Title }} - {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+<h1 class="title-h1">{{ .Title }}</h1>
+<div class="article-header">
+  {{ with .Params.preface }}
+  <span class="preface">{{ . }}</span>
+  {{ end }}
+  {{ with .Params.preface_author }}
+  <span class="preface-author">{{ . }}</span>
+  {{ end }}
+  <span class="article-author">{{ or .Params.article_author .Site.Params.author }}</span>
+  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $dateHuman := .Date | time.Format ":date_long" }}
+  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+</div>
+
+{{ with .Params.novel }}
+<style>
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-align: center;
+    margin: 2rem 0 2rem 0;
+  }
+
+  .special {
+    margin: 4rem 0 2rem 0;
+  }
+</style>
+{{ end }}
+
+{{ .Content }}
+
+{{ with .Params.license }}
+<div class="article-license">
+  {{ $dynamicContent := safeHTML (printf (index $.Site.Data.l10n "license") $.Params.license_url) }}
+  {{ $renderedContent := replace $dynamicContent "__license__" . }}
+  <span>{{ $renderedContent | safeHTML }}</span>
+</div>
+{{ end }}
+
+<div class="backtotop" id="backtotop">
+  <a href="#top"><img src="/assets/imgs/backtotop.webp" alt="" srcset=""></a>
+</div>
+{{ end }}
