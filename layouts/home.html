@@ -1,9 +1,21 @@
 {{ define "main" }}
+
+{{ if .Site.Params.disableHeroVideo }}
 <section class="hero" id="hero">
   {{ $hero := resources.GetMatch "/assets/imgs/hero.*" }}
   {{ $heroResize := $hero.Resize "999x webp"}}
   <img src="{{ $heroResize.RelPermalink }}" alt="Hero Image" class="hero-image" loading="lazy">
 </section>
+{{ else }}
+<section class="hero-vid" id="hero-vid">
+  <div class="hero-vid-container">
+    {{ $video := resources.Get "/assets/hero/bg.mp4" }}
+    <video autoplay muted loop playsinline>
+      <source src="{{ $video.RelPermalink }}" type="video/mp4">
+    </video>
+  </div>
+</section>
+{{ end }}
 
 <section class="about" id="about">
   <div class="about-intro">{{ .Site.Params.intro }}</div>
