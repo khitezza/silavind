@@ -13,16 +13,28 @@ disableKinds = ["section", "taxonomy", "term"] # DO NOT MODIFY
     site_description = "An extremely minimalist single-page Hugo theme..."
     author = "Name"
     intro = "Welcome to my personal blog. Wishing you a wonderful day."
+    disableHeroVideo = false
     
 # =========================Header START==========================
-# Recommended for up to 4 items with names of less than 9 letters.
+# Recommended for up to 5 items with names of less than 8 letters.
+
 [params.header]
+    [[params.header.links]]
+        name = "Home"
+        url = "/"
     [[params.header.links]]
         name = "Test"
         url = "#"
     [[params.header.links]]
-        name = "RSS"
-        url = "/index.xml"
+        name = "Test"
+        url = "#"
+    [[params.header.links]]
+        name = "Test"
+        url = "#"
+    [[params.header.links]]
+        name = "Test"
+        url = "#"
+
 # ==========================Header END===========================
 
 # =========================Social START==========================
@@ -42,6 +54,10 @@ disableKinds = ["section", "taxonomy", "term"] # DO NOT MODIFY
     [[params.social.links]]
         name = "Email"
         url = "mailto:you@example.com"
+
+    [[params.social.links]]
+        name = "RSS"
+        url = "/index.xml"
 # =========================Social END==========================
 
 # ========================Project START========================
